@@ -34,6 +34,11 @@ def main():
         for thing in updatable:
             thing.update(dt)
 
+        for asteroid in asteroids:
+            if asteroid.collided(player) == True:
+                print('Game Over!')
+                return
+
         screen.fill("black")
 
         
@@ -42,8 +47,6 @@ def main():
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000
-        print(player.x)
-        print(player.y)
 
 
 if __name__ == "__main__":
